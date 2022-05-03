@@ -1,15 +1,16 @@
-const num1 = prompt('Введите первое число');
+const num1 = prompt('Введите первое число').replace(/,/, '.');
 
 const showAnswer = (n1, n2) => {
-    if(Number.isInteger(n2) && n2 !== 0) {
-        console.log(`Ответ: ${n1+n2}, ${n1/n2}`);
-    } else {
-        console.log('Некорректный ввод!');
-    }
+  if(isNaN(Number(n2)) || !n2.trim() || Number(n2) === 0) {
+    console.log('Некорректный ввод!');
+  } else {
+    console.log(`Ответ: ${n1+Number(n2)}, ${n1/Number(n2)}`);
+  }
 }
 
-if(!Number.isInteger(+num1) || !num1) {
-    console.log('Некорректный ввод!');
+if(isNaN(Number(num1)) || !num1.trim()) {
+  console.log('Некорректный ввод!');
 } else {
-    showAnswer(+num1, +prompt('Введите второе число'));
+  const num2 = prompt('Введите второе число').replace(/,/, '.');
+  showAnswer(+num1, num2);
 }
