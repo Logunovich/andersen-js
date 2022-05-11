@@ -14,6 +14,6 @@ Array.prototype.myFilter = myFilter;
 
 function createDebounceFunction(func, time) {
   return function() {
-    setTimeout(func, time)
+    setTimeout(func, time);
   };
 }
