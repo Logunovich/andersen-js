@@ -38,7 +38,7 @@ function makeObjectDeepCopy(obj, type = 'obj') {
 }
 
 function selectFromInterval(arr, int1, int2) {
-  if(validateNumbers(arr, int1, int2)) {
+  if (validateNumbers(arr, int1, int2)) {
     let startArr = Math.min(int1, int2) - 1;
     let finishArr = Math.max(int1, int2);
 
