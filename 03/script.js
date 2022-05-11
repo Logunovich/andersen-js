@@ -1,9 +1,19 @@
-function myFilter() {
+function myFilter(func, thisArg) {
+  const resArr = [];
 
+  this.forEach((item, index, arr) => {
+    if (func.call(thisArg, item, index, arr)) {
+      resArr.push(item);
+    }
+  });
+
+  return resArr;
 }
 
-const arrTest = [1,2,3,4,5,6,7,8,9,10];
+Array.prototype.myFilter = myFilter;
 
-const filteredArr = arrTest.filter(item => item > 5);
-
-console.log(filteredArr);
+function createDebounceFunction(func, time) {
+  return function() {
+    setTimeout(func, time)
+  };
+}
