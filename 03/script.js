@@ -13,7 +13,10 @@ function myFilter(func, thisArg) {
 Array.prototype.myFilter = myFilter;
 
 function createDebounceFunction(func, time) {
+  let timeOutId;
+
   return function() {
-    setTimeout(func, time);
+    clearTimeout(timeOutId);
+    timeOutId = setTimeout(func, time);
   };
 }
