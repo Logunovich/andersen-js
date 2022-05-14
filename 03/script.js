@@ -16,6 +16,7 @@ function createDebounceFunction(func, time) {
   let timeOutId;
 
   return function() {
+    console.log('object');
     clearTimeout(timeOutId);
     timeOutId = setTimeout(func, time);
   };
