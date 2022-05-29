@@ -38,7 +38,7 @@ class Calculator {
 
   showNumber(num) {
     if (num === '.' && this.curVal.includes('.')) {
-      return
+      return;
     }
 
     if (num === '.' && !this.curVal.length) {
@@ -169,65 +169,65 @@ class Calculator {
   }
 }
 
-const calculator = new Calculator(LAST_DISPLAY, DISPLAY, M_VAL);
+const CALC = new Calculator(LAST_DISPLAY, DISPLAY, M_VAL);
 
 BUTTONS_NUM.forEach((item) => {
   item.addEventListener('click', () => { 
-    calculator.showNumber(item.innerText);
+    CALC.showNumber(item.innerText);
 
-    calculator.updateValue();
+    CALC.updateValue();
   })
 });
 
 BUTTONS_ACTION.forEach((item) => {
   item.addEventListener('click', () => { 
-    calculator.actions(item.innerText);
+    CALC.actions(item.innerText);
     
-    calculator.updateValue();
+    CALC.updateValue();
   })
 });
 
 BUTTON_EQUAL.addEventListener('click', () => {
-  calculator.compute();
-  calculator.updateValue();
+  CALC.compute();
+  CALC.updateValue();
 });
 
 BUTTON_CLEAN.addEventListener('click', () => {
-  calculator.clean();
-  calculator.updateValue();
+  CALC.clean();
+  CALC.updateValue();
 });
 
 BUTTON_DEL.addEventListener('click', () => {
-  calculator.delete();
-  calculator.updateValue();
+  CALC.delete();
+  CALC.updateValue();
 });
 
 BUTTON_NEGATIVE.addEventListener('click', () => {
-  calculator.negative();
-  calculator.updateValue();
+  CALC.negative();
+  CALC.updateValue();
 });
 
 BTN_MS.addEventListener('click', () => {
-  calculator.memoSave();  
-  calculator.updateMVal();
+  CALC.memoSave();  
+  CALC.updateMVal();
 });
 
 BTN_MC.addEventListener('click', () => {
-  calculator.memoClear();
-  calculator.updateMVal();
+  CALC.memoClear();
+  CALC.updateMVal();
 });
 
 BTN_MR.addEventListener('click', () => {
-  calculator.memoShow();
-  calculator.updateValue();
+  CALC.memoShow();
+  CALC.updateValue();
 });
 
 BTN_M_MINUS.addEventListener('click', () => {
-  calculator.memoAction('minus');
-  calculator.updateMVal();
+  CALC.memoAction('minus');
+  CALC.updateMVal();
 });
 
 BTN_M_PLUS.addEventListener('click', () => {
-  calculator.memoAction('plus');
-  calculator.updateMVal();
+  CALC.memoAction('plus');
+  CALC.updateMVal();
 });
