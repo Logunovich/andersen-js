@@ -157,13 +157,14 @@ class Car {
 
     const range = (100 / this._fuelConsumption) * this._currentFuelVolume;
     const trip = speed * hours;
+    const newFuelVolume = this._currentFuelVolume - trip / (100 / this._fuelConsumption);
 
     if (trip > range) {
       throwError(ERRORS_TEXT.notEnoughFuel);
     }
 
     Object.defineProperty(this, '_mileage', {value: this._mileage + trip, writable: false});
-    Object.defineProperty(this, '_currentFuelVolume', {value: this._currentFuelVolume - trip / (100 / this._fuelConsumption), writable: false});
+    Object.defineProperty(this, '_currentFuelVolume', {value: newFuelVolume, writable: false});
   }
 }
 
